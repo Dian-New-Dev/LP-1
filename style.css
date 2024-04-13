@@ -59,6 +59,14 @@ html {
     background-color: white;
     text-align: center;
     padding-bottom: 1px;
+
+}
+
+@media (max-width: 600px) {
+    #pageTitle {
+        padding-top: 50px;
+
+    }
 }
 
 #logo {
