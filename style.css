@@ -18,6 +18,11 @@ h3 {
     font-size: 20px;
 }
 
+h4 {
+    font-size: 20px;
+    border-bottom: 2px solid black;
+}
+
 h5 {
     font-size: 18px;
 }
@@ -108,7 +113,12 @@ main {
 }
 
 #topMenu {
+    flex: 0.9;
 
+}
+
+.button-div {
+    flex: 0.1;
 }
 
 .topMenu-notSticky {
@@ -139,15 +149,20 @@ main {
 
 
 
+
+
 #topMenu button {
-    margin-top: 10px;
+
 }
 
 #mainDiv1 {
     background-color: #005ba7;
     color: white;
     text-align: center;
-    padding-bottom: 10px;
+
+    display: flex;
+    justify-content: space-around;
+
 
 }
 
@@ -165,10 +180,7 @@ main {
 }
 
 button {
-    padding-left: 25px ;
-    padding-right: 25px ;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 10px 25px;
     border-radius: 5px;
     border: 2px solid white;
     background-color: #edc265;
@@ -178,13 +190,12 @@ button {
     color: white;
     font-weight: bold;
     transition: background-color 0.3s ease;
-    transition: border 0.3s ease;
+    transition: padding 0.3s ease;
 }
 
 button:hover {
     background-color: #d8970b;
     transform: scale(1.05);
-    border: 3px solid white;
 
 }
 
@@ -225,12 +236,127 @@ button:hover {
     filter: drop-shadow(3px 5px 4px black);
 }
 
+
+
 .icons {
     width: 100px;
 }
 
 #mainDiv4 {
     text-align: center;
+}
+
+.mapa {
+    display: flex;
+    padding: 20px;
+    background-color: rgb(237, 238, 227);   
+}
+
+iframe {
+    flex: 0.6;
+}
+
+@media (max-width: 1280px) {
+    iframe {
+        width: 80%;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+.wrapper {
+    flex: 0.4;
+}
+
+.wrapper h6 {
+    margin: 0;
+}
+
+.imagens-do-escritorio img {
+    width: 200px;
+    cursor: pointer;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); 
+}
+
+.modal-outer {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); 
+    z-index: 500;
+}
+
+.modal {
+    background-color: rgba(0, 0, 0, 0); 
+    width: 80%;
+    height: 80%;
+    position: block;
+    top: 50%;
+    left: 0;
+    z-index: 501;
+}
+
+.modal-imagem-ampliada {
+    text-align: center;
+}
+
+.modal-imagem-ampliada img {
+    width: 60%;
+}
+
+.modal-thumbnail {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.modal-thumbnail img {
+    width: 150px;
+    margin: 10px;
+}
+
+.selected-thumbnail {
+    border: 3px solid white;
+}
+
+.unselected-thumbnail {
+    width: 150px;
+    margin: 10px;
+    border: '';
+    filter: blue(100%)
+}
+
+.botao-fechar-modal {
+    position: absolute;
+    top: 0;
+    right: 23%;
+    margin: 100px;
+    background-color: #22222293;
+    border-radius: 50px;
+
+}
+
+
+
+.foto-do-advogado {
+    width: 200px;
+    border-radius: 100%;
+    
 }
 
 #maindDiv4-A {
@@ -388,6 +514,41 @@ footer {
     color: white;
     text-align: center;
     padding: 10px;
+    font-weight: 100;
+    font-size: 12px;
+}
+
+@media (max-width: 500px) {
+    #mainDiv3 {
+        padding-top: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (min-width: 500px) and (max-width: 800px) {
+    #mainDiv3 {
+        padding-top: 20px;
+        display: grid;
+        grid-template-columns: 100px 100px;
+        justify-items: center;
+        justify-content: space-evenly;
+        gap: 10px;
+        row-gap: 30px;
+
+
+    }
+}
+
+
+
+@media (max-width: 800px) {
+    .animatedIcons {
+        height: 100%;
+        padding-top: 20px;
+        margin: 10px 0px;
+    }
 }
 
 
@@ -399,10 +560,16 @@ footer {
     }
 }
 
+@media (max-width: 1280px) {
+    .mapa {
+        display: block;
+
+    }
+}
+
 @media (min-width: 1500px) {
     #mainDiv4 {
-        padding-left: 300px ;
-        padding-right: 300px ;
+        padding: 0px 200px ;
     }
 }
 
@@ -624,10 +791,13 @@ main {
 
 .topBar-mobile {
   display: flex;
+  position: fixed;
+  width: 100%;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   background-color: #005ba7;
+  z-index: 999;
 
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: #FFF;
@@ -652,6 +822,7 @@ main {
   display: none;
   height: 100%;
   width: 30px;
+  margin-right: 40px;
   cursor: pointer;
   flex-direction: column;
   justify-content: center;
@@ -752,3 +923,6 @@ main {
         display: none;
     }
 }
+
+
+
